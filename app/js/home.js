@@ -9,13 +9,16 @@ function qa(element) {
    if (newEl) return newEl;
 }
 
-qa("[data-src-webp]").forEach((el) => {
-   el.setAttribute("srcset", el.getAttribute("data-src-webp"));
-});
-qa("[data-src-img]").forEach((el) => {
-   el.setAttribute("src", el.getAttribute("data-src-img"));
-   el.removeAttribute("style");
-});
+const observer = lozad(); // lazy loads elements with default selector as ".lozad"
+observer.observe();
+
+// qa("[data-src-webp]").forEach((el) => {
+//    el.setAttribute("srcset", el.getAttribute("data-src-webp"));
+// });
+// qa("[data-src-img]").forEach((el) => {
+//    el.setAttribute("src", el.getAttribute("data-src-img"));
+//    el.removeAttribute("style");
+// });
 // setTimeout(() => {
 qs(".preloader").style.opacity = "0";
 qs("body").classList.remove("lock");
